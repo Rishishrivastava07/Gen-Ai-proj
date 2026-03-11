@@ -1,4 +1,4 @@
-# Gen-AI Interview Planner
+# InterviewForgeAI
 
 Gen-AI Interview Planner is a full-stack web app that generates a personalized interview preparation report from a job description and a candidate profile. Users can register, sign in, upload a resume or enter a short self-description, and receive an AI-generated interview plan with technical questions, behavioral questions, skill gaps, a match score, and a day-by-day preparation roadmap.
 
