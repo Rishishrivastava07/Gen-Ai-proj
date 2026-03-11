@@ -1,0 +1,355 @@
+$bg-base:    #0d1117;
+$bg-card:    #161b24;
+$bg-sidebar: #131820;
+$bg-panel:   #1a2030;
+$accent:     #e1034d;
+$accent-dim: rgba(225, 3, 77, 0.15);
+$text-primary: #f0f6fc;
+$text-muted:   #8b949e;
+$border:       #21262d;
+
+// ── Page wrapper ─────────────────────────────────────────
+.inter {
+  min-height: 100%;
+  background-color: $bg-base;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem;
+
+  // ── Floating card ──────────────────────────────────────
+  &__card {
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    width: 100%;
+    border: 1px solid $border;
+    border-radius: 1rem;
+    overflow: hidden;
+    min-height: calc(100vh - 4rem);
+  }
+
+  // ── Sidebars ────────────────────────────────────────────
+  &__sidebar {
+    background-color: $bg-sidebar;
+    padding: 1.75rem 1.125rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-right: 1px solid $border;
+
+    &--right {
+      border-right: none;
+      border-left: 1px solid $border;
+    }
+  }
+
+  &__sidebar-heading {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: $text-muted;
+    text-transform: uppercase;
+    margin-bottom: 0.625rem;
+
+    &--gap { margin-top: 1.75rem; }
+  }
+
+  // ── Left nav ────────────────────────────────────────────
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  &__nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    width: 100%;
+    padding: 0.55rem 0.75rem;
+    background: transparent;
+    border: none;
+    border-radius: 0.45rem;
+    color: $text-muted;
+    font-size: 0.85rem;
+    font-family: inherit;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.15s, color 0.15s;
+
+    &:hover { background-color: $bg-panel; color: $text-primary; }
+
+    &--active {
+      background-color: $accent;
+      color: #fff;
+      font-weight: 600;
+
+      .inter__nav-icon { color: #fff; }
+
+      &:hover { background-color: #c40243; }
+    }
+  }
+
+  &__nav-icon {
+    font-size: 0.78rem;
+    flex-shrink: 0;
+    font-style: normal;
+    color: $text-muted;
+  }
+
+  // ── Center ──────────────────────────────────────────────
+  &__main {
+    background-color: $bg-base;
+    padding: 1.75rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    overflow-y: auto;
+  }
+
+  &__main-header {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+  }
+
+  &__section-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: $text-primary;
+  }
+
+  &__count-badge {
+    font-size: 0.75rem;
+    color: $text-muted;
+    background-color: $bg-panel;
+    border: 1px solid $border;
+    border-radius: 2rem;
+    padding: 0.2rem 0.65rem;
+  }
+
+  &__divider {
+    border: none;
+    border-top: 1px solid $border;
+    margin: 0;
+  }
+
+  // ── Question cards ──────────────────────────────────────
+  &__questions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  &__question-card {
+    background-color: $bg-sidebar;
+    border: 1px solid $border;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: border-color 0.15s;
+
+    &:hover { border-color: #30363d; }
+  }
+
+  &__question-header {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    width: 100%;
+    padding: 0.9rem 1rem;
+    background: transparent;
+    border: none;
+    color: $text-primary;
+    font-family: inherit;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: left;
+    line-height: 1.5;
+  }
+
+  &__question-num {
+    flex-shrink: 0;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: $accent;
+    background-color: $accent-dim;
+    padding: 0.18rem 0.4rem;
+    border-radius: 0.25rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    min-width: 26px;
+    text-align: center;
+  }
+
+  &__question-text { flex: 1; }
+
+  &__chevron {
+    flex-shrink: 0;
+    font-size: 0.65rem;
+    color: $text-muted;
+  }
+
+  &__question-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0 1rem 1rem;
+    border-top: 1px solid $border;
+  }
+
+  &__intention,
+  &__answer {
+    font-size: 0.825rem;
+    line-height: 1.7;
+    color: $text-muted;
+    margin-top: 0.5rem;
+  }
+
+  &__label {
+    font-weight: 600;
+    color: $text-primary;
+    margin-right: 0.25rem;
+  }
+
+  // ── Roadmap ─────────────────────────────────────────────
+  &__roadmap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+
+  &__plan-card {
+    background-color: $bg-sidebar;
+    border: 1px solid $border;
+    border-radius: 0.5rem;
+    padding: 1rem;
+  }
+
+  &__plan-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  &__plan-day {
+    flex-shrink: 0;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: $accent;
+    background-color: $accent-dim;
+    padding: 0.18rem 0.45rem;
+    border-radius: 0.25rem;
+  }
+
+  &__plan-focus {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: $text-primary;
+  }
+
+  &__plan-tasks {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding-left: 0.25rem;
+
+    li {
+      font-size: 0.8rem;
+      color: $text-muted;
+      line-height: 1.6;
+      padding-left: 1.1rem;
+      position: relative;
+
+      &::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: $accent;
+        font-size: 0.68rem;
+        top: 0.1rem;
+      }
+    }
+  }
+
+  // ── Score ring ───────────────────────────────────────────
+  &__score-ring {
+    position: relative;
+    width: 90px;
+    align-self: center;
+    margin: 0.5rem 0 0.25rem;
+  }
+
+  &__score-svg {
+    width: 90px;
+    height: 90px;
+    transform: rotate(-90deg);
+  }
+
+  &__score-label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+  }
+
+  &__score-value {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: $text-primary;
+    line-height: 1;
+  }
+
+  &__score-pct {
+    font-size: 0.7rem;
+    color: $text-muted;
+    align-self: flex-end;
+    margin-bottom: 0.2rem;
+  }
+
+  &__score-desc {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #22c55e;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+  }
+
+  // ── Skill gap tags ──────────────────────────────────────
+  &__skill-tags {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__skill-tag {
+    display: block;
+    font-size: 0.775rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.4rem;
+    font-weight: 600;
+    line-height: 1.4;
+
+    &--high   { background: rgba(220,38,38,0.3);   color: #fca5a5; }
+    &--medium { background: rgba(217,119,6,0.3);   color: #fcd34d; }
+    &--low    { background: rgba(34,197,94,0.2);   color: #86efac; }
+  }
+}
+
+// ── Loading / empty state ───────────────────────────────
+.inter__card--center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 4rem);
+  width: 100%;
+}
+
+.inter__loading {
+  color: #8b949e;
+  font-size: 1rem;
+}
