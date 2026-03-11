@@ -38,17 +38,6 @@ async function registerUser(req, res) {
     password: hash,
   });
 
-  const token = jwt.sign(
-    {
-      id: user._id,
-      name: user.name,
-    },
-    process.env.JWT_SECRET,
-    { expiresIn: "1d" },
-  );
-
-  res.cookie("token", token, getCookieOptions());
-
   res.status(201).json({
     message: "User registered successfully.",
     user: {
